@@ -1,0 +1,68 @@
+{
+  "collection_name": "incident_memory",
+  "enable_dynamic_field": true,
+  "fields": [
+    {
+      "auto_id": true,
+      "default_value": null,
+      "dim": null,
+      "dtype": "int64",
+      "element_type": null,
+      "is_primary": true,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "id",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": 384,
+      "dtype": "float_vector",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "vector",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 2000,
+      "name": "text",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 100,
+      "name": "attack_type",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 50,
+      "name": "action",
+      "nullable": false
+    }
+  ],
+  "schema_format_version": 2,
+  "version": 1
+}

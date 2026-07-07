@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Any
-from .ids_core import IDSCore
+from ids_core import IDSCore
 
 app = FastAPI(title="IDS Intelligence API", description="入侵检测与 AI Agent 响应接口")
 core = IDSCore()
@@ -78,3 +78,25 @@ async def agent_explain(req: AgentExplainRequest):
 @app.get("/stats", response_model=StatsResponse)
 async def stats():
     return core.get_stats()
+
+# ============================================================
+# RAG 知识库统计接口
+# ============================================================
+
+@app.get("/rag/stats")
+async def rag_stats():
+    """
+    获取 RAG 知识库的统计信息
+    """
+    try:
+        from agent_core import get_rag_stats
+        stats = get_rag_stats()
+        return {
+            "status": "ok",
+            "stats": stats
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
